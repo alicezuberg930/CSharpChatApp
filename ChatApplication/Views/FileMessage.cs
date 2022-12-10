@@ -1,52 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using ChatApplication.Controller;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ChatApplication.Views
 {
     public partial class FileMessage : UserControl
     {
+        public byte[] file;
         public FileMessage()
         {
             InitializeComponent();
         }
-        public string file
+        public byte[] chosenFile
         {
             get
             {
-                return fileRichTextBox.Text;
+                return file;
             }
             set
             {
-                fileRichTextBox.Text = value;
+                file = value;
+            }
+        }
+        public string fileName
+        {
+            get
+            {
+                return fileLabel.Text;
+            }
+            set
+            {
+                fileLabel.Text = value;
                 AdjustHeight();
             }
         }
         public Image avatar { get => userAvatar.BackgroundImage; set => userAvatar.BackgroundImage = value; }
-
         private void AdjustHeight()
         {
             userAvatar.Location = new Point(4, 3);
-            msg.Width = fileRichTextBox.Width;
-            container.Width = userAvatar.Left + userAvatar.Width + msg.Left + msg.Width + 20;
+            msg.Width = Utils.GetTextWidth(fileLabel) + 20;
+            container.Width = userAvatar.Left + userAvatar.Width + msg.Left + msg.Width;
             this.Height = container.Height;
             this.Width = container.Width;
         }
-
         private void container_Resize(object sender, EventArgs e)
         {
             AdjustHeight();
         }
-        private void fileRichTextBox_Click(object sender, EventArgs e)
+        private void msg_MouseClick(object sender, MouseEventArgs e)
         {
-
+            string[] ex = fileLabel.Text.Split('.');
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = ex[1];
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.InitialDirectory = "c:\\Downloads";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveFileDialog.FileName;
+                FileInfo fi = new FileInfo(path);
+                using (FileStream fs = fi.OpenWrite())
+                {
+                    fs.Write(file, 0, file.Length);
+                }
+            }
         }
     }
-    //   richTextBox1.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.RichText);
 }

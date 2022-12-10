@@ -38,7 +38,6 @@ namespace ChatApplication.Views
             this.Height = container.Height;
             this.Width = container.Width;
         }
-
         private void container_Resize(object sender, EventArgs e)
         {
             AdjustHeight();

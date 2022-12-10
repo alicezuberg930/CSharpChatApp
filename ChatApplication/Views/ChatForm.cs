@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ChatApplication.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace ChatApplication.Views
             textBox.Text = string.Empty;
         }
 
-        private void AddMessage(String message)
+        private void AddMessage(string message)
         {
             var bubble = new TextMessage();
             chatContainer.Controls.Add(bubble);
@@ -47,6 +49,16 @@ namespace ChatApplication.Views
             bubble.image = image;
         }
 
+        private void AddFile(string fileName, byte[] chosenFile)
+        {
+            var bubble = new FileMessage();
+            bubble.chosenFile = chosenFile;
+            bubble.fileName = fileName;
+            chatContainer.Controls.Add(bubble);
+            bubble.BringToFront();
+            bubble.Dock = DockStyle.Top;
+        }
+
         private void imageButton_Click(object sender, EventArgs e)
         {
             string[] imageExtensions = { "jpg", "png", "jpeg" };
@@ -59,12 +71,11 @@ namespace ChatApplication.Views
             {
                 string selectedFileName = openFileDialog.FileName;
                 if (imageExtensions.Contains(selectedFileName.Split('.')[1])) {
-                    Bitmap image = new Bitmap(selectedFileName);
-                    AddImage(image);
+                    AddImage(new Bitmap(selectedFileName));
                 }
                 else
                 {
-
+                    AddFile(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName));
                 }
             }
         }

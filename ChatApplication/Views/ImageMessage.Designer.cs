@@ -42,7 +42,7 @@
             this.userAvatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userAvatar.BackgroundImage")));
             this.userAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.userAvatar.BorderRadius = 15;
-            this.userAvatar.Location = new System.Drawing.Point(8, 5);
+            this.userAvatar.Location = new System.Drawing.Point(5, 5);
             this.userAvatar.Name = "userAvatar";
             this.userAvatar.Size = new System.Drawing.Size(50, 50);
             this.userAvatar.TabIndex = 1;
@@ -54,7 +54,7 @@
             this.container.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.container.Controls.Add(this.imageBox);
             this.container.Controls.Add(this.userAvatar);
-            this.container.Location = new System.Drawing.Point(3, 3);
+            this.container.Location = new System.Drawing.Point(0, 0);
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(350, 300);
             this.container.TabIndex = 3;
@@ -64,7 +64,7 @@
             this.imageBox.BackColor = System.Drawing.Color.Transparent;
             this.imageBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imageBox.BackgroundImage")));
             this.imageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imageBox.Location = new System.Drawing.Point(64, 5);
+            this.imageBox.Location = new System.Drawing.Point(60, 5);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(250, 250);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

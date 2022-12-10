@@ -71,7 +71,7 @@ namespace ChatApplication.Views
             saveFileDialog.InitialDirectory = "c:\\Downloads";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.imageBox.Image.Save(saveFileDialog.FileName);
+                image.Save(saveFileDialog.FileName);
             }
         }
     }

@@ -47,7 +47,7 @@
             this.container.Controls.Add(this.msg);
             this.container.Location = new System.Drawing.Point(0, 0);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(268, 59);
+            this.container.Size = new System.Drawing.Size(270, 60);
             this.container.TabIndex = 2;
             this.container.Resize += new System.EventHandler(this.container_Resize);
             // 
@@ -56,7 +56,7 @@
             this.userAvatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userAvatar.BackgroundImage")));
             this.userAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.userAvatar.BorderRadius = 15;
-            this.userAvatar.Location = new System.Drawing.Point(8, 5);
+            this.userAvatar.Location = new System.Drawing.Point(5, 5);
             this.userAvatar.Name = "userAvatar";
             this.userAvatar.Size = new System.Drawing.Size(50, 50);
             this.userAvatar.TabIndex = 1;
@@ -68,7 +68,7 @@
             this.msg.Controls.Add(this.messageLabel);
             this.msg.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
             this.msg.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
-            this.msg.Location = new System.Drawing.Point(61, 5);
+            this.msg.Location = new System.Drawing.Point(60, 5);
             this.msg.Name = "msg";
             this.msg.Size = new System.Drawing.Size(200, 50);
             this.msg.TabIndex = 0;
@@ -89,10 +89,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(120)))));
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.container);
             this.Name = "TextMessage";
-            this.Size = new System.Drawing.Size(273, 65);
+            this.Size = new System.Drawing.Size(439, 216);
             ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
             this.container.ResumeLayout(false);
             this.msg.ResumeLayout(false);

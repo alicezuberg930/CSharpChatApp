@@ -29,80 +29,84 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileMessage));
-            this.userAvatar = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.container = new DevExpress.XtraEditors.PanelControl();
-            this.fileRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.userAvatar = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.msg = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
+            this.fileLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.SuspendLayout();
             this.msg.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // userAvatar
-            // 
-            this.userAvatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userAvatar.BackgroundImage")));
-            this.userAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userAvatar.BorderRadius = 15;
-            this.userAvatar.Location = new System.Drawing.Point(8, 5);
-            this.userAvatar.Name = "userAvatar";
-            this.userAvatar.Size = new System.Drawing.Size(50, 50);
-            this.userAvatar.TabIndex = 1;
             // 
             // container
             // 
             this.container.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(120)))));
             this.container.Appearance.Options.UseBackColor = true;
             this.container.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.container.Controls.Add(this.msg);
             this.container.Controls.Add(this.userAvatar);
-            this.container.Location = new System.Drawing.Point(3, 3);
+            this.container.Controls.Add(this.msg);
+            this.container.Location = new System.Drawing.Point(0, 0);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(274, 65);
-            this.container.TabIndex = 4;
+            this.container.Size = new System.Drawing.Size(270, 60);
+            this.container.TabIndex = 3;
+            this.container.Resize += new System.EventHandler(this.container_Resize);
             // 
-            // fileRichTextBox
+            // userAvatar
             // 
-            this.fileRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
-            this.fileRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fileRichTextBox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileRichTextBox.ForeColor = System.Drawing.Color.White;
-            this.fileRichTextBox.Location = new System.Drawing.Point(12, 16);
-            this.fileRichTextBox.Name = "fileRichTextBox";
-            this.fileRichTextBox.Size = new System.Drawing.Size(150, 20);
-            this.fileRichTextBox.TabIndex = 2;
-            this.fileRichTextBox.Text = "Hello World";
-            this.fileRichTextBox.Click += new System.EventHandler(this.fileRichTextBox_Click);
+            this.userAvatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userAvatar.BackgroundImage")));
+            this.userAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userAvatar.BorderRadius = 15;
+            this.userAvatar.Location = new System.Drawing.Point(5, 5);
+            this.userAvatar.Name = "userAvatar";
+            this.userAvatar.Size = new System.Drawing.Size(50, 50);
+            this.userAvatar.TabIndex = 1;
             // 
             // msg
             // 
             this.msg.BackColor = System.Drawing.Color.Transparent;
             this.msg.BorderRadius = 15;
-            this.msg.Controls.Add(this.fileRichTextBox);
+            this.msg.Controls.Add(this.fileLabel);
             this.msg.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
             this.msg.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
-            this.msg.Location = new System.Drawing.Point(64, 5);
+            this.msg.Location = new System.Drawing.Point(60, 5);
             this.msg.Name = "msg";
             this.msg.Size = new System.Drawing.Size(200, 50);
-            this.msg.TabIndex = 3;
+            this.msg.TabIndex = 0;
+            this.msg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.msg_MouseClick);
+            // 
+            // fileLabel
+            // 
+            this.fileLabel.AutoSize = true;
+            this.fileLabel.BackColor = System.Drawing.Color.Transparent;
+            this.fileLabel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileLabel.ForeColor = System.Drawing.Color.White;
+            this.fileLabel.Location = new System.Drawing.Point(3, 16);
+            this.fileLabel.Name = "fileLabel";
+            this.fileLabel.Size = new System.Drawing.Size(97, 19);
+            this.fileLabel.TabIndex = 2;
+            this.fileLabel.Text = "Hello world";
             // 
             // FileMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.container);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FileMessage";
-            this.Size = new System.Drawing.Size(282, 68);
+            this.Size = new System.Drawing.Size(363, 168);
             ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
             this.container.ResumeLayout(false);
             this.msg.ResumeLayout(false);
+            this.msg.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel userAvatar;
+
         private DevExpress.XtraEditors.PanelControl container;
-        private System.Windows.Forms.RichTextBox fileRichTextBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel userAvatar;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel msg;
+        private System.Windows.Forms.Label fileLabel;
     }
 }
