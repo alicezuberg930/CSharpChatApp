@@ -46,6 +46,10 @@
     <Reference Include="DevExpress.Sparkline.v22.1.Core, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v22.1, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
     </Reference>
@@ -220,6 +224,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Class1.cs" />
+    <Compile Include="Controller\Emoji.cs" />
     <Compile Include="Controller\Utils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +234,12 @@
     </Compile>
     <Compile Include="Views\ChatForm.Designer.cs">
       <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyControl\EmojiPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MyControl\EmojiPicker.Designer.cs">
+      <DependentUpon>EmojiPicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MyControl\FileMessage.cs">
       <SubType>UserControl</SubType>
@@ -253,12 +265,6 @@
     <Compile Include="Views\MyControl\TextMessage.Designer.cs">
       <DependentUpon>TextMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyControl\EmojiPicker.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\MyControl\EmojiPicker.Designer.cs">
-      <DependentUpon>EmojiPicker.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -271,6 +277,9 @@
     </Compile>
     <EmbeddedResource Include="Views\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyControl\EmojiPicker.resx">
+      <DependentUpon>EmojiPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MyControl\FileMessage.resx">
       <DependentUpon>FileMessage.cs</DependentUpon>

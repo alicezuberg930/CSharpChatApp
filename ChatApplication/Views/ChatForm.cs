@@ -1,5 +1,4 @@
-﻿using ChatApplication.Controller;
-using ChatApplication.Views.MyControl;
+﻿using ChatApplication.Views.MyControl;
 using System;
 using System.Drawing;
 using System.IO;
@@ -10,6 +9,16 @@ namespace ChatApplication.Views
 {
     public partial class ChatForm : Form
     {
+        public static ChatForm instance;
+        public static ChatForm Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new ChatForm();
+                return instance;
+            }
+        }
         public ChatForm()
         {
             InitializeComponent();
@@ -19,14 +28,17 @@ namespace ChatApplication.Views
             chatContainer.HorizontalScroll.Maximum = 0;
             chatContainer.AutoScroll = true;
         }
-
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox chatBox
+        {
+            get { return textBox; }
+            set { textBox = value; }
+        }
         private void sendButton_Click(object sender, EventArgs e)
         {
             if (textBox.Text == string.Empty) return;
             AddMessage(textBox.Text);
             textBox.Text = string.Empty;
         }
-
         private void AddMessage(string message)
         {
             var bubble = new TextMessage();
@@ -35,7 +47,6 @@ namespace ChatApplication.Views
             bubble.Dock = DockStyle.Top;
             bubble.message = message;
         }
-
         private void AddImage(Image image)
         {
             var bubble = new ImageMessage();
@@ -44,7 +55,6 @@ namespace ChatApplication.Views
             bubble.Dock = DockStyle.Top;
             bubble.image = image;
         }
-
         private void AddFile(string fileName, byte[] chosenFile)
         {
             var bubble = new FileMessage();
@@ -75,13 +85,18 @@ namespace ChatApplication.Views
                 }
             }
         }
-
         private void emojiButton_Click(object sender, EventArgs e)
         {
-            if (emoji_container.Visible == true)
-                emoji_container.Visible = false;
+            EmojiPicker ep;
+            if (EmojiPicker.instance == null)
+            {
+                ep = new EmojiPicker(this);
+                ep.Show();
+            }
             else
-                emoji_container.Visible = true;
+            {
+                ep.Close();
+            }
         }
     }
 }
