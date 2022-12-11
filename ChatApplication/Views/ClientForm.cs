@@ -7,19 +7,20 @@ using System.Windows.Forms;
 
 namespace ChatApplication.Views
 {
-    public partial class ChatForm : Form
+    public partial class ClientForm : Form
     {
-        public static ChatForm instance;
-        public static ChatForm Instance
+        public static ClientForm instance;
+        private EmojiPicker _instance = null;
+        public static ClientForm Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new ChatForm();
+                    instance = new ClientForm();
                 return instance;
             }
         }
-        public ChatForm()
+        public ClientForm()
         {
             InitializeComponent();
             chatContainer.AutoScroll = false;
@@ -82,20 +83,20 @@ namespace ChatApplication.Views
                 else
                 {
                     AddFile(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName));
-                }
+                } 
             }
         }
         private void emojiButton_Click(object sender, EventArgs e)
         {
-            EmojiPicker ep;
-            if (EmojiPicker.instance == null)
+            if (_instance == null)
             {
-                ep = new EmojiPicker(this);
-                ep.Show();
+                _instance = new EmojiPicker(this);
+                _instance.Show();
             }
             else
             {
-                ep.Close();
+                _instance.Close();
+                _instance = null;
             }
         }
     }

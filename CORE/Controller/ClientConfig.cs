@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CORE.Controller
 {
-    internal class Client
+    internal class ClientConfig
     {
     }
 }

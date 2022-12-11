@@ -6,8 +6,8 @@ namespace ChatApplication.Views.MyControl
 {
     public partial class EmojiPicker : Form
     {
-        public ChatForm cf;
-        public EmojiPicker(ChatForm cf)
+        public ClientForm cf;
+        public EmojiPicker(ClientForm cf)
         {
             InitializeComponent();
             CreateEmojis();
@@ -41,6 +41,11 @@ namespace ChatApplication.Views.MyControl
                 };
                 emoji_container.Controls.Add(emoji);
             }
+        }
+
+        private void closeButton_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
         }
     }
 }
