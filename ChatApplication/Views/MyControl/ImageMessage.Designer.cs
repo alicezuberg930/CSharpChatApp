@@ -1,4 +1,4 @@
-﻿namespace ChatApplication.Views
+﻿namespace ChatApplication.Views.MyControl
 {
     partial class ImageMessage
     {

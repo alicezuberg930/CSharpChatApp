@@ -1,6 +1,6 @@
-﻿namespace ChatApplication.Views
+﻿namespace ChatApplication.Views.MyControl
 {
-    partial class FileMessage
+    partial class TextMessage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileMessage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextMessage));
             this.container = new DevExpress.XtraEditors.PanelControl();
             this.userAvatar = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.msg = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
-            this.fileLabel = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.SuspendLayout();
             this.msg.SuspendLayout();
@@ -48,7 +48,7 @@
             this.container.Location = new System.Drawing.Point(0, 0);
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(270, 60);
-            this.container.TabIndex = 3;
+            this.container.TabIndex = 2;
             this.container.Resize += new System.EventHandler(this.container_Resize);
             // 
             // userAvatar
@@ -65,35 +65,34 @@
             // 
             this.msg.BackColor = System.Drawing.Color.Transparent;
             this.msg.BorderRadius = 15;
-            this.msg.Controls.Add(this.fileLabel);
+            this.msg.Controls.Add(this.messageLabel);
             this.msg.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
             this.msg.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
             this.msg.Location = new System.Drawing.Point(60, 5);
             this.msg.Name = "msg";
             this.msg.Size = new System.Drawing.Size(200, 50);
             this.msg.TabIndex = 0;
-            this.msg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.msg_MouseClick);
             // 
-            // fileLabel
+            // messageLabel
             // 
-            this.fileLabel.AutoSize = true;
-            this.fileLabel.BackColor = System.Drawing.Color.Transparent;
-            this.fileLabel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileLabel.ForeColor = System.Drawing.Color.White;
-            this.fileLabel.Location = new System.Drawing.Point(3, 16);
-            this.fileLabel.Name = "fileLabel";
-            this.fileLabel.Size = new System.Drawing.Size(97, 19);
-            this.fileLabel.TabIndex = 2;
-            this.fileLabel.Text = "Hello world";
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.messageLabel.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.ForeColor = System.Drawing.Color.White;
+            this.messageLabel.Location = new System.Drawing.Point(3, 16);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(97, 19);
+            this.messageLabel.TabIndex = 2;
+            this.messageLabel.Text = "Hello world";
             // 
-            // FileMessage
+            // TextMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.container);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FileMessage";
-            this.Size = new System.Drawing.Size(363, 168);
+            this.Name = "TextMessage";
+            this.Size = new System.Drawing.Size(439, 216);
             ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
             this.container.ResumeLayout(false);
             this.msg.ResumeLayout(false);
@@ -107,6 +106,6 @@
         private DevExpress.XtraEditors.PanelControl container;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel userAvatar;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel msg;
-        private System.Windows.Forms.Label fileLabel;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

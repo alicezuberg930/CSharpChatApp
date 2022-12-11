@@ -1,13 +1,9 @@
 ﻿using ChatApplication.Controller;
+using ChatApplication.Views.MyControl;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChatApplication.Views
@@ -78,6 +74,14 @@ namespace ChatApplication.Views
                     AddFile(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName));
                 }
             }
+        }
+
+        private void emojiButton_Click(object sender, EventArgs e)
+        {
+            if (emoji_container.Visible == true)
+                emoji_container.Visible = false;
+            else
+                emoji_container.Visible = true;
         }
     }
 }

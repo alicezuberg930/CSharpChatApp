@@ -220,7 +220,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\FileConverter.cs" />
     <Compile Include="Controller\Utils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,16 +229,16 @@
     <Compile Include="Views\ChatForm.Designer.cs">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FileMessage.cs">
+    <Compile Include="Views\MyControl\FileMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\FileMessage.Designer.cs">
+    <Compile Include="Views\MyControl\FileMessage.Designer.cs">
       <DependentUpon>FileMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ImageMessage.cs">
+    <Compile Include="Views\MyControl\ImageMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ImageMessage.Designer.cs">
+    <Compile Include="Views\MyControl\ImageMessage.Designer.cs">
       <DependentUpon>ImageMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginForm.cs">
@@ -248,11 +247,17 @@
     <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TextMessage.cs">
+    <Compile Include="Views\MyControl\TextMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\TextMessage.Designer.cs">
+    <Compile Include="Views\MyControl\TextMessage.Designer.cs">
       <DependentUpon>TextMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyControl\EmojiPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MyControl\EmojiPicker.Designer.cs">
+      <DependentUpon>EmojiPicker.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -267,16 +272,16 @@
     <EmbeddedResource Include="Views\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FileMessage.resx">
+    <EmbeddedResource Include="Views\MyControl\FileMessage.resx">
       <DependentUpon>FileMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ImageMessage.resx">
+    <EmbeddedResource Include="Views\MyControl\ImageMessage.resx">
       <DependentUpon>ImageMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TextMessage.resx">
+    <EmbeddedResource Include="Views\MyControl\TextMessage.resx">
       <DependentUpon>TextMessage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -298,7 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Recources\c#.png" />
+    <Content Include="Recources\download-icon.png" />
     <Content Include="Recources\emoji-icon.png" />
+    <Content Include="Recources\file-download-icon.png" />
     <Content Include="Recources\messenger-icon.png" />
     <Content Include="Recources\send-file-icon.png" />
   </ItemGroup>

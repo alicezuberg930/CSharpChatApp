@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace ChatApplication.Views
+namespace ChatApplication.Views.MyControl
 {
     public partial class FileMessage : UserControl
     {
@@ -40,7 +40,7 @@ namespace ChatApplication.Views
         private void AdjustHeight()
         {
             userAvatar.Location = new Point(4, 3);
-            msg.Width = Utils.GetTextWidth(fileLabel) + 20;
+            msg.Width = Utils.GetTextWidth(fileLabel) + 60;
             container.Width = userAvatar.Left + userAvatar.Width + msg.Left + msg.Width;
             this.Height = container.Height;
             this.Width = container.Width;

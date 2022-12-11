@@ -33,6 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chatContainer = new System.Windows.Forms.Panel();
+            this.emoji_container = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.siticoneCustomGradientPanel5 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
@@ -74,6 +75,7 @@
             // chatContainer
             // 
             this.chatContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(120)))));
+            this.chatContainer.Controls.Add(this.emoji_container);
             this.chatContainer.Controls.Add(this.panel8);
             this.chatContainer.Controls.Add(this.panel6);
             this.chatContainer.Controls.Add(this.siticoneCustomGradientPanel5);
@@ -82,6 +84,15 @@
             this.chatContainer.Name = "chatContainer";
             this.chatContainer.Size = new System.Drawing.Size(992, 439);
             this.chatContainer.TabIndex = 2;
+            // 
+            // emoji_container
+            // 
+            this.emoji_container.BackColor = System.Drawing.Color.White;
+            this.emoji_container.Location = new System.Drawing.Point(7, 289);
+            this.emoji_container.Name = "emoji_container";
+            this.emoji_container.Size = new System.Drawing.Size(200, 150);
+            this.emoji_container.TabIndex = 15;
+            this.emoji_container.Visible = false;
             // 
             // panel8
             // 
@@ -144,6 +155,7 @@
             this.emojiButton.Name = "emojiButton";
             this.emojiButton.Size = new System.Drawing.Size(50, 40);
             this.emojiButton.TabIndex = 7;
+            this.emojiButton.Click += new System.EventHandler(this.emojiButton_Click);
             // 
             // imageButton
             // 
@@ -196,7 +208,7 @@
             this.textBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.textBox.BorderRadius = 15;
             this.textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox.DefaultText = "Nhập tin nhắn";
+            this.textBox.DefaultText = "😀";
             this.textBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.textBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -260,5 +272,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel messageContainer;
+        private System.Windows.Forms.Panel emoji_container;
     }
 }
