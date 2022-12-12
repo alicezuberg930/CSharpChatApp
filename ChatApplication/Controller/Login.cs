@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatApplication.Controller
+﻿namespace ChatApplication.Controller
 {
-    internal class Class1
+    internal class Login
     {
-        public bool Login(string username, string password)
+        public bool Loginn(string username, string password)
         {
             //var account = _entities.Admins.Where(a => a.Username == username).FirstOrDefault();
             //if (account == null)

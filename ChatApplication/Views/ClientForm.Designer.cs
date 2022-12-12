@@ -165,7 +165,7 @@
             this.messageContainer.Size = new System.Drawing.Size(1050, 60);
             this.messageContainer.TabIndex = 15;
             // 
-            // ChatForm
+            // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,9 +175,10 @@
             this.Controls.Add(this.chatContainer);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "ChatForm";
+            this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChatForm";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.messageContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 

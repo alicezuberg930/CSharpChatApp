@@ -52,7 +52,7 @@
             this.start_button.Appearance.Options.UseForeColor = true;
             this.start_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.start_button.Location = new System.Drawing.Point(445, 91);
-            this.start_button.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.start_button.Margin = new System.Windows.Forms.Padding(6);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(150, 50);
             this.start_button.TabIndex = 0;
@@ -82,7 +82,7 @@
             this.client_list.Appearance.Options.UseFont = true;
             this.client_list.Appearance.Options.UseForeColor = true;
             this.client_list.Location = new System.Drawing.Point(5, 91);
-            this.client_list.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.client_list.Margin = new System.Windows.Forms.Padding(10);
             this.client_list.Name = "client_list";
             this.client_list.Size = new System.Drawing.Size(430, 400);
             this.client_list.TabIndex = 5;
@@ -97,7 +97,7 @@
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.simpleButton1.Location = new System.Drawing.Point(445, 155);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(8);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(150, 50);
             this.simpleButton1.TabIndex = 6;
@@ -165,7 +165,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "ServerForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.client_list)).EndInit();

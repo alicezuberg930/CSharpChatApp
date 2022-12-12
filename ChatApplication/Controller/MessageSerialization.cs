@@ -8,23 +8,22 @@ namespace ChatApplication.Controller
 {
     public static class MessageSerialization
     {
-        private static byte[] SerializeText(string data)
+        public static byte[] SerializeText(string data)
         {
             return Encoding.UTF8.GetBytes(data.ToString());
         }
 
-        private static string DeserializeText(byte[] data)
+        public static string DeserializeText(byte[] data)
         {
             return Encoding.UTF8.GetString(data);
         }
 
-        private static byte[] SerializeImage(Image data)
+        public static byte[] SerializeImage(Image data)
         {
             ImageConverter converter = new ImageConverter();
             return (byte[])converter.ConvertTo(data, typeof(byte[]));
         }
-
-        private static Bitmap DeserializeImage(byte[] data)
+        public static Bitmap DeserializeImage(byte[] data)
         {
             Bitmap bmp;
             using (var ms = new MemoryStream(data))
@@ -34,7 +33,7 @@ namespace ChatApplication.Controller
             return bmp;
         }
 
-        private static byte[] SerializeFile(FileModel data)
+        public static byte[] SerializeFile(FileModel data)
         {
             BinaryFormatter bf = new BinaryFormatter();
             using (var ms = new MemoryStream())
@@ -44,7 +43,7 @@ namespace ChatApplication.Controller
             }
         }
 
-        private static FileModel DeserializeFile(byte[] data)
+        public static FileModel DeserializeFile(byte[] data)
         {
             using (var memStream = new MemoryStream())
             {
