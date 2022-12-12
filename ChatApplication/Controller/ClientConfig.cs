@@ -61,9 +61,8 @@ namespace Entity.Controller
 
         public void SendFile(FileModel file)
         {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeFile(file);
-            client.Send(b);
+            //byte[] b = new byte[int.MaxValue];
+            client.Send(MessageSerialization.SerializeFile(file));
             Utils.IncomingFile(file.file_name, file.file_content, panel);
         }
         public void Recieve()
