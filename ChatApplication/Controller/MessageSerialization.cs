@@ -10,7 +10,7 @@ namespace ChatApplication.Controller
     {
         public static byte[] SerializeText(string data)
         {
-            return Encoding.UTF8.GetBytes(data.ToString());
+            return Encoding.UTF8.GetBytes(data);
         }
 
         public static string DeserializeText(byte[] data)

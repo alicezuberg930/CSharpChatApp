@@ -7,6 +7,10 @@ using System.Windows.Forms;
 using ChatApplication.Controller;
 using Entity.Controller;
 using ChatApplication.Model;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System.Runtime.Remoting.Contexts;
 
 namespace ChatApplication.Views
 {
@@ -37,16 +41,12 @@ namespace ChatApplication.Views
         public ClientForm()
         {
             InitializeComponent();
-            cc = new ClientConfig(this);
-            CheckForIllegalCrossThreadCalls = false;
-            cc.Connect();
             chatContainer.AutoScroll = false;
             chatContainer.HorizontalScroll.Enabled = false;
             chatContainer.HorizontalScroll.Visible = false;
             chatContainer.HorizontalScroll.Maximum = 0;
             chatContainer.AutoScroll = true;
         }
-
         private void sendButton_Click(object sender, EventArgs e)
         {
             if (textBox.Text == string.Empty) return;
@@ -90,10 +90,25 @@ namespace ChatApplication.Views
         }
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            if(ClientConfig.state == 0)
+            cc = new ClientConfig(this);
+            CheckForIllegalCrossThreadCalls = false;
+            //Connect();
+            cc.Connect();
+            if (ClientConfig.state == 0)
             {
-                this.Close();
+                Close();
             }
+        }
+        public void IncomingMessage(string message)
+        {
+            chatContainer.Invoke((MethodInvoker)delegate ()
+            {
+                var bubble = new TextMessage();
+                chatContainer.Controls.Add(bubble);
+                bubble.BringToFront();
+                bubble.Dock = DockStyle.Top;
+                bubble.message = message;
+            });
         }
     }
 }
