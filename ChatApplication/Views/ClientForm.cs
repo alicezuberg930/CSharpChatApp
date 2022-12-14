@@ -4,13 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using ChatApplication.Controller;
 using Entity.Controller;
 using ChatApplication.Model;
-using System.Net.Sockets;
-using System.Net;
-using System.Threading;
-using System.Runtime.Remoting.Contexts;
 
 namespace ChatApplication.Views
 {
@@ -51,7 +46,6 @@ namespace ChatApplication.Views
         {
             if (textBox.Text == string.Empty) return;
             cc.SendText(textBox.Text);
-            //Utils.IncomingMessage(textBox.Text,chatContainer);
             textBox.Text = string.Empty;
         }
         private void imageButton_Click(object sender, EventArgs e)
@@ -66,12 +60,10 @@ namespace ChatApplication.Views
                 string selectedFileName = openFileDialog.FileName;
                 if (imageExtensions.Contains(selectedFileName.Split('.')[1])) {
                     cc.SendImage(new Bitmap(selectedFileName));
-                    //Utils.IncomingImage(new Bitmap(selectedFileName), chatContainer);
                 }
                 else
                 {
-                    cc.SendFile(new FileModel(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName))); 
-                    //Utils.IncomingFile(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName), chatContainer);
+                    cc.SendFile(new FileModel(openFileDialog.SafeFileName, File.ReadAllBytes(selectedFileName)));
                 } 
             }
         }
@@ -92,7 +84,6 @@ namespace ChatApplication.Views
         {
             cc = new ClientConfig(this);
             CheckForIllegalCrossThreadCalls = false;
-            //Connect();
             cc.Connect();
             if (ClientConfig.state == 0)
             {

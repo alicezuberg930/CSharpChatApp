@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
 using ChatApplication.Views;
+using System;
 
 namespace Entity.Controller
 {
@@ -16,7 +17,7 @@ namespace Entity.Controller
         private ClientForm clientForm;
         public static int state = 1;
         private Utils utils;
-
+        private int message_type;
         public ClientConfig(ClientForm clientForm)
         {
             this.clientForm = clientForm;
@@ -25,11 +26,8 @@ namespace Entity.Controller
 
         public void Connect()
         {
-            string hostName = Dns.GetHostName();
-            string IP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-            if (IP == null) return;
-            ipe = new IPEndPoint(IPAddress.Parse(IP), int.Parse("8000"));
-            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            ipe = new IPEndPoint(IPAddress.Parse(Utils.GetIPAddress()), 9050);
+            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 client.Connect(ipe);
@@ -48,39 +46,37 @@ namespace Entity.Controller
 
         public void Recieve()
         {
-            //try
-            //{
+            try
+            {
                 while (true)
-                { 
+                {
                     byte[] b = new byte[1024 * 5000];
                     client.Receive(b);
                     string message = MessageSerialization.DeserializeText(b);
-                Utils.IncomingMessage(message, clientForm.chatPanel);
+                    Utils.IncomingMessage(message, clientForm.chatPanel);
                 }
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Không nhận được tin nhắn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void StopClient()
         {
             client.Close();
         }
+
         public void SendText(string text)
         {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeText(text);
-            client.Send(b);
+            message_type = 1;
+            client.Send(MessageSerialization.SerializeText(text));
             Utils.IncomingMessage(text, clientForm.chatPanel);
         }
 
         public void SendImage(Bitmap image)
         {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeImage(image);
-            client.Send(b);
+            client.Send(MessageSerialization.SerializeImage(image));
             Utils.IncomingImage(image, clientForm.chatPanel);
         }
 

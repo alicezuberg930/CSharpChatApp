@@ -20,12 +20,9 @@ namespace Entity.Controller
         }
         public void Connect()
         {
-            string hostName = Dns.GetHostName();
-            string IP = Dns.GetHostByName(hostName).AddressList[0].ToString();
-            if (IP == null) return;
             clientList = new List<Socket>();
-            ipe = new IPEndPoint(IPAddress.Parse(IP), 8000);
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            ipe = new IPEndPoint(IPAddress.Parse(Utils.GetIPAddress()), 9050);
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             server.Bind(ipe);
             Thread listen = new Thread(() =>
             {
@@ -44,8 +41,8 @@ namespace Entity.Controller
                 }
                 catch
                 {
-                    ipe = new IPEndPoint(IPAddress.Any, 8000);
-                    server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+                    ipe = new IPEndPoint(IPAddress.Any, 9050);
+                    server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 }
             });
             listen.IsBackground = true;
@@ -78,48 +75,6 @@ namespace Entity.Controller
         public void StopServer()
         {
             server.Close();
-        }
-
-        private void SendText(Socket client, string text)
-        {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeText(text);
-            client.Send(b);
-        }
-
-        private void SendImage(Socket client, Bitmap image)
-        {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeImage(image);
-            client.Send(b);
-        }
-
-        private void SendFile(Socket client, FileModel file)
-        {
-            byte[] b = new byte[1024 * 5000];
-            b = MessageSerialization.SerializeFile(file);
-            client.Send(b);
-        }
-        private void SendEveryoneText(string text)
-        {
-            foreach (Socket socket in clientList)
-            {
-                SendText(socket, text);
-            }
-        }
-        private void SendEveryoneImage(Bitmap image)
-        {
-            foreach (Socket socket in clientList)
-            {
-                SendImage(socket, image);
-            }
-        }
-        private void SendEveryoneFile(FileModel file)
-        {
-            foreach (Socket socket in clientList)
-            {
-                SendFile(socket, file);
-            }
         }
     }
 }

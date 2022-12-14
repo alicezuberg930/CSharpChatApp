@@ -79,9 +79,9 @@
             this.emojiButton.FillColor2 = System.Drawing.Color.Empty;
             this.emojiButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.emojiButton.ForeColor = System.Drawing.Color.White;
-            this.emojiButton.Location = new System.Drawing.Point(94, 10);
+            this.emojiButton.Location = new System.Drawing.Point(105, 10);
             this.emojiButton.Name = "emojiButton";
-            this.emojiButton.Size = new System.Drawing.Size(50, 40);
+            this.emojiButton.Size = new System.Drawing.Size(40, 40);
             this.emojiButton.TabIndex = 7;
             this.emojiButton.Click += new System.EventHandler(this.emojiButton_Click);
             // 
@@ -103,9 +103,9 @@
             this.imageButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.imageButton.ForeColor = System.Drawing.Color.White;
             this.imageButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.imageButton.Location = new System.Drawing.Point(150, 10);
+            this.imageButton.Location = new System.Drawing.Point(151, 10);
             this.imageButton.Name = "imageButton";
-            this.imageButton.Size = new System.Drawing.Size(50, 40);
+            this.imageButton.Size = new System.Drawing.Size(40, 40);
             this.imageButton.TabIndex = 6;
             this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
             // 
@@ -125,9 +125,9 @@
             this.sendButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sendButton.ForeColor = System.Drawing.Color.White;
             this.sendButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.sendButton.Location = new System.Drawing.Point(892, 10);
+            this.sendButton.Location = new System.Drawing.Point(902, 10);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(100, 40);
+            this.sendButton.Size = new System.Drawing.Size(40, 40);
             this.sendButton.TabIndex = 4;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
@@ -136,7 +136,7 @@
             this.textBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.textBox.BorderRadius = 15;
             this.textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox.DefaultText = "😀";
+            this.textBox.DefaultText = "Nhập tin nhắn";
             this.textBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.textBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -144,6 +144,7 @@
             this.textBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(100)))));
             this.textBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox.ForeColor = System.Drawing.Color.White;
             this.textBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox.Location = new System.Drawing.Point(206, 10);
             this.textBox.Name = "textBox";

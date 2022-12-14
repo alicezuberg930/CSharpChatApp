@@ -1,6 +1,8 @@
 ﻿using ChatApplication.Views.MyControl;
 using System;
 using System.Drawing;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace ChatApplication.Controller
@@ -57,6 +59,27 @@ namespace ChatApplication.Controller
                 bubble.BringToFront();
                 bubble.Dock = DockStyle.Top;
             });
+        }
+
+        public static string GetIPAddress()
+        {
+            foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
+                {
+                    if (ni.Name.Equals("Wi-Fi"))
+                    {
+                        foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                        {
+                            if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                            {
+                                return ip.Address.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            return "127.0.0.1";
         }
     }
 }

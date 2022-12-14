@@ -18,10 +18,10 @@ namespace ChatApplication.Controller
             return Encoding.UTF8.GetString(data);
         }
 
-        public static byte[] SerializeImage(Image data)
+        public static byte[] SerializeImage(Bitmap data)
         {
             ImageConverter converter = new ImageConverter();
-            return (byte[])converter.ConvertTo(data, typeof(byte[]));
+            return (byte[])converter.ConvertTo(new Bitmap(data), typeof(byte[]));
         }
         public static Bitmap DeserializeImage(byte[] data)
         {
